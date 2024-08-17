@@ -47,7 +47,7 @@ export default function Home() {
         <div className="flex justify-between items-center">
           <h1 className="text-white text-2xl font-semibold">Newest Songs</h1>
         </div>
-        <div >List Songs</div>
+        <div>List Songs</div>
       </div>
     </div>
   );
