@@ -33,27 +33,22 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
     >
       <div
         className="
-        mb-4
-        w-full
-        flex
+        mb-4 w-full flex
         items-center
         justify-between
         "
       >
         <div
           className="
-          hidden
-          md:flex
-          gap-x-2
-          items-center
+          hidden md:flex
+          gap-x-2 items-center
           "
         >
           <button
             onClick={() => router.back()}
             className="
             rounded-full
-            bg-black
-            flex
+            bg-black flex
             items-center
             justify-center
             hover:opacity-75
@@ -66,8 +61,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             onClick={() => router.forward()}
             className="
             rounded-full
-            bg-black
-            flex
+            bg-black flex
             items-center
             justify-center
             hover:opacity-75
@@ -81,8 +75,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           <button
             className="
             rounded-full
-            bg-white
-            flex
+            bg-white flex
             items-center
             justify-center
             hover:opacity-75
@@ -94,8 +87,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
           <button
             className="
             rounded-full
-            bg-white
-            flex
+            bg-white flex
             items-center
             justify-center
             hover:opacity-75
@@ -107,10 +99,8 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
         </div>
         <div
           className="
-          flex
-          justify-between
-          items-center
-          gap-x-4        
+          flex justify-between
+          items-center gap-x-4        
           "
         >
           <>
