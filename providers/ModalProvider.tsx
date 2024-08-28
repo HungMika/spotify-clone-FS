@@ -1,6 +1,6 @@
 "use client";
 
-import Modal from "@/components/Modal";
+import AuthModal from "@/components/AuthModal";
 import { useEffect, useState } from "react";
 
 const ModalProvider = () => {
@@ -16,7 +16,7 @@ const ModalProvider = () => {
 
   return (
     <>
-      <Modal title="test" description="test des" isOpen onChange={() => {}}>Test Modal children</Modal>
+      <AuthModal />
     </>
   );
 };
