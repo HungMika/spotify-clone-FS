@@ -19,11 +19,11 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ children, className }) => {
-  const authmodal = useAuthModal();
   const router = useRouter();
 
-  const supabaseClient = useSupabaseClient();
   const { user } = useUser();
+  const authmodal = useAuthModal();
+  const supabaseClient = useSupabaseClient();
 
   const handleLogOut = async () => {
     const { error } = await supabaseClient.auth.signOut();

@@ -1,11 +1,22 @@
 "use content";
 
+import useAuthModal from "@/hooks/useAuthModal";
+import useUploadModal from "@/hooks/useUploadModal";
+import { useUser } from "@/hooks/useUser";
 import { AiOutlinePlus } from "react-icons/ai";
 import { TbPlaylist } from "react-icons/tb";
 
 const Library = () => {
+  const { user } = useUser();
+  const authmodal = useAuthModal();
+  const uploadmodal = useUploadModal();
+
   const onClick = () => {
-    //update later
+    if (!user) {
+      return authmodal.onOpen();
+    }
+    //TODO: check for subscription
+    return uploadmodal.onOpen();
   };
   return (
     <div className="flex flex-col">
@@ -14,8 +25,7 @@ const Library = () => {
         flex
         justify-between
         items-center
-        px-5
-        pt-4
+        px-5 pt-4
         "
       >
         <div
@@ -41,13 +51,13 @@ const Library = () => {
       </div>
       <div
         className="
-        flex
-        flex-col
+        flex flex-col
         gap-y-2
-        mt-4
-        px-3
+        mt-4 px-3
         "
-      >List of Songs</div>
+      >
+        List of Songs
+      </div>
     </div>
   );
 };
