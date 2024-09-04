@@ -13,24 +13,22 @@ const SearchInput = () => {
   const debouncedValue = useDebounce<string>(value, 500);
 
   useEffect(() => {
+    if (debouncedValue.trim() === "") return; // prevent empty search and infinite loop
+
     const query = { title: debouncedValue };
 
     const url = qs.stringifyUrl({
-      url: "/search",
+      url: "/Search",
       query: query,
     });
 
     router.push(url);
   }, [debouncedValue, router]);
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-
   return (
     <div>
       <Input
-        placeholder="What do you want to listen to?"
+        placeholder="What do you want to listen to ?"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
