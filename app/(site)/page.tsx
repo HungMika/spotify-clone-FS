@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 import getSongs from "@/actions/getSongs";
 import PageContent from "./components/pageContent";
+import React from "react";
 
 export const revalidate = 0;
 
@@ -40,7 +41,7 @@ export default async function Home() {
             <ListItem
               image="/Images/liked.png"
               name="Liked songs"
-              href="Liked"
+              href="Liked" //point to "Liked" folder and render Liked/page.tsx
             />
           </div>
         </div>

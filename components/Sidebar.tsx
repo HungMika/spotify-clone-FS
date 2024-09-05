@@ -20,14 +20,14 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
       {
         icon: HiHome,
         label: "Home",
-        active: pathname !== "/search",
+        active: pathname !== "/Search",
         href: "/",
       },
       {
         icon: BiSearch,
         label: "Search",
-        active: pathname === "/search",
-        href: "/Search",
+        active: pathname === "/Search",
+        href: "/Search", //point to "Search" folder and render Search/page.tsx
       },
     ],
     [pathname]
