@@ -9,6 +9,7 @@ export const revalidate = 0;
 
 export default async function Home() {
   const songs = await getSongs();
+  //throw new Error("Test");
   return (
     <div
       className="
