@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import * as RadixSlider from "@radix-ui/react-slider";
 
@@ -13,6 +14,7 @@ const Slider: React.FC<SliderProps> = ({ value = 1, onChange }) => {
   return (
     <RadixSlider.Root
       className="
+      flex
       relative
       select-none
       touch-none
@@ -24,10 +26,22 @@ const Slider: React.FC<SliderProps> = ({ value = 1, onChange }) => {
       onValueChange={handleChange}
       max={1}
       step={0.1}
-      aria-label="volume"
+      aria-label="Volume"
     >
-      <RadixSlider.Track className="bg-neutral-600 relative grow rounded-full h-[3px]">
-        <RadixSlider.Range className="h-full absolute bg-white rounded-full " />
+      <RadixSlider.Track
+        className="
+        relative
+      bg-neutral-600 
+        grow h-[3px]
+        rounded-full "
+      >
+        <RadixSlider.Range
+          className="
+        absolute 
+        bg-white
+        h-full 
+        rounded-full"
+        />
       </RadixSlider.Track>
     </RadixSlider.Root>
   );
