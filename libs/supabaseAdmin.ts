@@ -60,7 +60,7 @@ const createOrRetrieveCustomer = async ({
     .eq("id", uuid)
     .single();
 
-  if (error || !data.stripe_customer_id) {
+  if (error || !data?.stripe_customer_id) {
     const customerData: { metadata: { supabaseUUID: string }; email?: string } =
       {
         metadata: {
@@ -88,7 +88,7 @@ const copyBillingDetailsToCustomer = async (
   const customer = payment_method.customer as string;
   const { name, phone, address } = payment_method.billing_details;
   if (!name || !phone || !address) return;
-  //@ts-ignore
+  // @ts-ignore
   await stripe.customers.update(customer, { name, phone, address });
   const { error } = await supabaseAdmin
     .from("users")
@@ -121,20 +121,18 @@ const manageSubscriptionStatusChange = async (
   });
   const subscriptionData: Database["public"]["Tables"]["subscriptions"]["Insert"] =
     {
-      id: subscriptionId,
+      id: subscription.id,
       user_id: uuid,
       metadata: subscription.metadata,
-      //@ts-ignore
+      // @ts-ignore
       status: subscription.status,
       price_id: subscription.items.data[0].price.id,
-      //@ts-ignore
+      // @ts-ignore
       quantity: subscription.quantity,
       cancel_at_period_end: subscription.cancel_at_period_end,
-      //cancel
       cancel_at: subscription.cancel_at
         ? toDatetime(subscription.cancel_at).toISOString()
         : null,
-      //canceled
       canceled_at: subscription.canceled_at
         ? toDatetime(subscription.canceled_at).toISOString()
         : null,

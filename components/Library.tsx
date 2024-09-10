@@ -1,21 +1,23 @@
 "use content";
-
+import { useUser } from "@/hooks/useUser";
+import useOnPlay from "@/hooks/useOnPlay";
 import useAuthModal from "@/hooks/useAuthModal";
 import useUploadModal from "@/hooks/useUploadModal";
-import { useUser } from "@/hooks/useUser";
-import { AiOutlinePlus } from "react-icons/ai";
+import useSubscribeModal from "@/hooks/useSubscribeModal";
+
 import { TbPlaylist } from "react-icons/tb";
+import { AiOutlinePlus } from "react-icons/ai";
 
 import { Song } from "@/types";
 import MediaItem from "./MediaItem";
-import useOnPlay from "@/hooks/useOnPlay";
 
 interface LibraryProps {
   songs: Song[];
 }
 
 const Library: React.FC<LibraryProps> = ({ songs }) => {
-  const { user } = useUser();
+  const subscribeModal = useSubscribeModal();
+  const { user, subscription } = useUser();
   const authmodal = useAuthModal();
   const uploadmodal = useUploadModal();
 
@@ -26,6 +28,9 @@ const Library: React.FC<LibraryProps> = ({ songs }) => {
       return authmodal.onOpen();
     }
     //TODO: check for subscription
+    if (!subscription) {
+      return subscribeModal.onOpen();
+    }
     return uploadmodal.onOpen();
   };
   return (

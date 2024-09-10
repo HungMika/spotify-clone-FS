@@ -8,8 +8,6 @@ import {
   upsertPriceRecord,
   manageSubscriptionStatusChange,
 } from "@/libs/supabaseAdmin";
-import { error } from "console";
-import { receiveMessageOnPort } from "worker_threads";
 
 const relevantEvents = new Set([
   "product.created",

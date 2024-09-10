@@ -1,19 +1,25 @@
 "use client";
 
+//package
 import React from "react";
-
-import { useRouter } from "next/navigation";
-import { BiSearch } from "react-icons/bi";
-import { HiHome } from "react-icons/hi";
-import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
+import toast from "react-hot-toast";
 import { twMerge } from "tailwind-merge";
-import Button from "./Button";
+import { useRouter } from "next/navigation";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
-import useAuthModal from "@/hooks/useAuthModal";
-import { useUser } from "@/hooks/useUser";
+//Icon
+import { HiHome } from "react-icons/hi";
+import { BiSearch } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
-import toast from "react-hot-toast";
+import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
+
+//local components
+import Button from "./Button";
+
+//local hooks
+import { useUser } from "@/hooks/useUser";
+import usePlayer from "@/hooks/usePlayer";
+import useAuthModal from "@/hooks/useAuthModal";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -24,12 +30,14 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
   const router = useRouter();
 
   const { user } = useUser();
+  const player = usePlayer();
   const authmodal = useAuthModal();
   const supabaseClient = useSupabaseClient();
 
   const handleLogOut = async () => {
     const { error } = await supabaseClient.auth.signOut();
-    //reset any playing spngs
+    //reset any playing songs if logged out
+    player.reset();
     router.refresh();
 
     if (error) {
@@ -85,6 +93,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
         </div>
         <div className="flex md:hidden gap-x-2 items-center">
           <button
+            onClick={() => router.push("/")}
             className="
             rounded-full bg-white flex
             items-center justify-center
@@ -94,6 +103,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
             <HiHome className="text-black p-0.5" size={20} />
           </button>
           <button
+            onClick={() => router.push("/Search")}
             className="
             rounded-full bg-white flex
             items-center justify-center

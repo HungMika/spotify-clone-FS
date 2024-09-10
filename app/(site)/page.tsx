@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 import getSongs from "@/actions/getSongs";
 import PageContent from "./components/pageContent";
+import { useUser } from "@/hooks/useUser";
+import useAuthModal from "@/hooks/useAuthModal";
 
 export const revalidate = 0;
 
