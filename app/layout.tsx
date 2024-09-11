@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import React from "react";
-import { Figtree } from "next/font/google";
 import "./globals.css";
+import type { Metadata } from "next";
+import { Figtree } from "next/font/google";
 
-import Sidebar from "@/components/Sidebar";
 import Player from "@/components/Player";
+import Sidebar from "@/components/Sidebar";
 
-import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
+import SupabaseProvider from "@/providers/SupabaseProvider";
 
 import getSongByUserID from "@/actions/getSongByUserID";
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices"
