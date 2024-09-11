@@ -41,7 +41,7 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({ products }) => {
   const { user, isLoading, subscription } = useUser();
   const [priceIdLoading, setPriceIdLoading] = useState<string>();
 
-  const onChange = (poen: boolean) => {
+  const onChange = (open: boolean) => {
     if (!open) {
       subscribeModal.onClose();
     }
