@@ -29,6 +29,7 @@ const Modal: React.FC<ModalProps> = ({
         max-h-full h-full 
         md:h-auto 
         md:max-h-[85vh]
+        w-[95vw]
         md:w-[90vw]
         md:max-w-[450px]
         translate-x-[-50%]

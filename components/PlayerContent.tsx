@@ -88,7 +88,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
       md:grid-cols-3"
     >
       <div className="flex w-full justify-start">
-        <div className="flex items-center gap-x-4">
+        <div className="flex items-center gap-x-4 max-w-[290px]">
           <MediaItem data={song} />
           <LikeButton songId={song.id} />
         </div>
