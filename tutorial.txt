@@ -1,0 +1,4 @@
+(1.)using "stripe listen 
+--forward-to https://spotify-clone-fs-seven.vercel.app/api/webhooks" that help subscriptions work.
+(2.)create endpoint in stripe/dashboard/developers/webhooks with (1.) url, add event "customer.subscription.created", ...
+(3.) replace STRIPE_WEBHOOK_SECRET with Signing secret in webhooks/endpoint.

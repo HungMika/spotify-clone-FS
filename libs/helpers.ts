@@ -5,7 +5,7 @@ export const getUrl = () => {
     process.env.NEXT_PUBLIC_SITE_URL ??
     process.env.NEXT_PUBLIC_VERCEL_URL ??
     "https://spotify-clone-fs-seven.vercel.app";
-  //"https://localhost:3000"; replace if run in local
+    //"https://localhost:3000"; replace if run in local
 
   url = url.includes("http") ? url : `https://${url}`;
   url = url.charAt(url.length - 1) === "/" ? url : `${url}/`;
