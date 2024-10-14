@@ -79,17 +79,3 @@ const Modal: React.FC<ModalProps> = ({
 };
 
 export default Modal;
-
-// This component renders a modal dialog using the Radix UI library
-// The modal includes a title, description, and children elements
-// The modal can be closed by clicking a close button in the top-right corner
-// The `title` prop is used to set the modal's title
-// The `description` prop is used to set the modal's description
-// The `children` prop is used to render any additional content inside the modal
-// The `Dialog.Close` component is used to render the close button
-// The `IoMdClose` icon is used for the close button
-// The modal's styles are defined using Tailwind CSS classes
-// The modal is centered on the screen and has a maximum width of 450px on medium screens
-// The modal has a dark background and rounded corners
-// The modal's content is padded and the focus outline is removed
-// The close button changes color when hovered
