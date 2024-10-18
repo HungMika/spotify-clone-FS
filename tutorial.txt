@@ -3,3 +3,6 @@
 (2.)create endpoint in stripe/dashboard/developers/webhooks with (1.) url, add event "customer.subscription.created", ...
 (3.) replace STRIPE_WEBHOOK_SECRET with Signing secret in webhooks/endpoint.
 (4.) DON'T FORGET TO REDEPLOY THE WEB
+(5.) get SMTP for supabase email verification:
+ - Getting domain by using Github Pages, go to your project (turn it public) => select soucre (master or main) => save and your domain is "<username>.github.io"
+ - go to https://resend.com, add domain, fill with <username>.github.io, verify DNS record, waiting and you get a SMTP.
